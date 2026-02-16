@@ -91,7 +91,7 @@ See [AGENTS.md](AGENTS.md) for detailed architecture documentation.
 
 ## License
 
-MIT License - see LICENSE file for details
+MIT License - see [LICENSE.md](LICENSE.md) for details
 
 ## Contributing
 
