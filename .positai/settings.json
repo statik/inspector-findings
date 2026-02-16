@@ -1,0 +1,19 @@
+{
+  "permission": {
+    "bash": {
+      "ls *": "allow",
+      "grep *": "allow",
+      "where python 2>/dev/null": "allow",
+      "which *": "allow",
+      "where python3 2>/dev/null": "allow",
+      "python *": "allow",
+      "python3 --version 2>&1": "allow",
+      "echo *": "allow",
+      "cd \"C:\\Users\\ellio\\Documents\\inspector-findings\"": "allow",
+      "uv --version 2>&1": "allow",
+      "where uv 2>&1": "allow",
+      "rm -f app.R renv.lock .Rprofile": "allow",
+      "rm -rf renv/": "allow"
+    }
+  }
+}

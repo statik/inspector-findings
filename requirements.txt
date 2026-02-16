@@ -1,0 +1,4 @@
+shiny[theme]>=1.5.0
+boto3
+pandas
+matplotlib
