@@ -4,3 +4,11 @@
 .httr-oauth
 .DS_Store
 .quarto
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+*.so
+.Python

@@ -6,7 +6,9 @@ Shiny for Python application for fetching and analyzing AWS Inspector findings. 
 
 ## File Structure
 
-- `app.py` — The complete Shiny for Python application (single-file, ~1060 lines)
+- `app.py` — The complete Shiny for Python application (single-file, ~1070 lines)
+- `www/` — Static files directory (automatically served at root path)
+  - `favicon.ico` — Simple "I" favicon (32x32 and 16x16, generated with PIL)
 - `example-findings.json` — Sample findings file for demos (enables conditional "Load Example Data" button)
 - `requirements.txt` — Python dependencies (install with `uv pip install -r requirements.txt`)
 - `.venv/` — uv-managed virtual environment (Python 3.13)
@@ -31,6 +33,10 @@ Listed in `requirements.txt`. Install with `uv pip install -r requirements.txt`.
 - `matplotlib` — Plotting (severity charts, timeline, pie charts)
 
 ## Architecture
+
+### Static Files
+
+The app serves static files (favicon, etc.) from the `www/` directory via the `static_assets` parameter on the `App` object. Files in `www/` are accessible at the root path (e.g., `www/favicon.ico` → `/favicon.ico`).
 
 ### Data Flow
 
@@ -102,6 +108,7 @@ Date columns are parsed to `pd.Timestamp` (UTC) after fetch.
 
 ### UI Components
 
+- **Page title** — "AWS Inspector Findings" with GitHub link icon (https://github.com/statik/inspector-findings)
 - **Value boxes** — Total, Critical, High, Fix Available counts
 - **DataTable** (`render.data_frame` with `render.DataTable`) — Sortable, filterable, single row selection, 600px height
 - **Row-click detail modal** — Full finding details in a CSS grid layout. Includes:

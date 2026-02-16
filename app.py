@@ -286,6 +286,10 @@ print(f'Done. Wrote {{len(all_findings)}} findings to findings.json', file=sys.s
 # -- Custom JS ----------------------------------------------------------------
 
 CUSTOM_JS = tags.head(
+    tags.link(
+        rel="stylesheet",
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+    ),
     tags.script(
         HTML("""\
 /* eval_js message handler — runs arbitrary JS sent from the server */
@@ -394,6 +398,7 @@ app_ui = ui.page_sidebar(
         width=300,
     ),
     CUSTOM_JS,
+    tags.head(tags.link(rel="icon", type="image/x-icon", href="/favicon.ico")),
     ui.layout_columns(
         ui.value_box(
             "Total Findings",
@@ -487,7 +492,16 @@ app_ui = ui.page_sidebar(
             class_="p-0",
         ),
     ),
-    title="AWS Inspector Findings",
+    title=TagList(
+        "AWS Inspector Findings",
+        tags.a(
+            tags.i(class_="fab fa-github", style="margin-left:10px; font-size:0.9em;"),
+            href="https://github.com/statik/inspector-findings",
+            target="_blank",
+            title="View on GitHub",
+            style="color:inherit; text-decoration:none;",
+        ),
+    ),
     theme=ui.Theme("flatly"),
 )
 
@@ -1063,4 +1077,4 @@ def server(input: Inputs, output: Outputs, session: Session):
         return fig
 
 
-app = App(app_ui, server)
+app = App(app_ui, server, static_assets=Path(__file__).parent / "www")
